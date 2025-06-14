@@ -6,10 +6,9 @@ namespace Crawler;
 public class WebCrawler
 {
     private const int MaxDepth = 1;
-    
+
     public async Task Crawl(string seed, CancellationToken cancellationToken = default)
     {
-        var client = new HttpClient();
         var uri = new Uri(seed);
 
         var robot = await RobotsHandler.GetDisallowedSites(uri, cancellationToken);
@@ -25,19 +24,23 @@ public class WebCrawler
 
             for (var i = 0; i < width; i++)
             {
-                var current  = visitQueue.Dequeue();
+                var current = visitQueue.Dequeue();
                 seen.Add(current);
                 Console.WriteLine($"Visiting: {current}");
-                
-                var html = await client.GetStringAsync(current, cancellationToken);
-                foreach (var links in LinkHarvester.Harvest(uri, html))
+
+                var html = await LinkVisitor.VisitAsync(current, cancellationToken);
+                if (!string.IsNullOrEmpty(html))
                 {
-                    if (!seen.Contains(links) && !robot.Disallowed.Contains(links))
+                    foreach (var links in LinkHarvester.Harvest(uri, html))
                     {
-                        visitQueue.Enqueue(links);
+                        if (!seen.Contains(links) && !robot.Disallowed.Contains(links))
+                        {
+                            visitQueue.Enqueue(links);
+                        }
                     }
+
                 }
-                
+
                 Thread.Sleep(robot.Delay);
             }
 
@@ -45,7 +48,7 @@ public class WebCrawler
             {
                 break;
             }
-            
+
             depth++;
         }
     }
