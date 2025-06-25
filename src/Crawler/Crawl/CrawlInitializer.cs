@@ -1,21 +1,22 @@
 using Crawling;
+using Frontier;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace Crawl.Crawl;
 
 internal static class CrawlInitializer
 {
-    public static async Task<int> Run(string seed, int depth, int width, CancellationToken cancellationToken)
+    public static Task<int> Run(string seed, int depth, int width, CancellationToken cancellationToken)
     {
-        var services = new ServiceCollection();
-        services.UserCrawler();
-        services.AddTransient<CrawlRunner>();
+        var builder = Host.CreateApplicationBuilder();
+        builder.Services.UseFrontier();
+
+        var host = builder.Build();
+
+        var controller = host.Services.GetRequiredService<Controller>();
+        controller.Start();
         
-        var provider = services.BuildServiceProvider();
-
-        var runner = provider.GetRequiredService<CrawlRunner>();
-        await runner.Run(seed, depth, width, cancellationToken);
-
-        return 0;
+        return Task.FromResult(0);
     }
 }
