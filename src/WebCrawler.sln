@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawling", "Crawling\Crawli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawling.Tests", "Crawling.Tests\Crawling.Tests.csproj", "{4C0DE722-DAAB-4C4F-9EDA-C1619DF61795}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontier", "Frontier\Frontier.csproj", "{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{4C0DE722-DAAB-4C4F-9EDA-C1619DF61795}.Release|x64.Build.0 = Release|Any CPU
 		{4C0DE722-DAAB-4C4F-9EDA-C1619DF61795}.Release|x86.ActiveCfg = Release|Any CPU
 		{4C0DE722-DAAB-4C4F-9EDA-C1619DF61795}.Release|x86.Build.0 = Release|Any CPU
+		{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}.Debug|x64.Build.0 = Debug|Any CPU
+		{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}.Debug|x86.Build.0 = Debug|Any CPU
+		{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}.Release|x64.ActiveCfg = Release|Any CPU
+		{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}.Release|x64.Build.0 = Release|Any CPU
+		{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}.Release|x86.ActiveCfg = Release|Any CPU
+		{FA6455DC-AE25-4CD9-9FB3-0EE9B2BD1E14}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
