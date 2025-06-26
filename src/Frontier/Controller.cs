@@ -1,9 +1,19 @@
-﻿namespace Frontier;
+﻿using Crawling;
+using Microsoft.Extensions.Hosting;
 
-public sealed class Controller
+namespace Frontier;
+
+public sealed class Controller (ServiceQueue serviceQueue, IHostApplicationLifetime applicationLifetime)
 {
-    public void Start()
+    private readonly CancellationToken _cancellationToken = applicationLifetime.ApplicationStopping;
+    
+    public void Start(Configuration configuration)
     {
-        Console.WriteLine("Hello world!");
+        while (!_cancellationToken.IsCancellationRequested)
+        {
+            await serviceQueue.QueueAsync();
+        }
     }
+    
+    private async 
 }
